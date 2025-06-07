@@ -50,6 +50,7 @@ const RAW_RUNTIME_STATE =
           ["expo-system-ui", "virtual:3888c587a5d2a62b076f7e50ac6a694c2f1f244ec4331abe0f6c81a768719a890b15ba7cca490c131de5d579be735e0f1cfba5babc5bd712c70990b9e00512c3#npm:5.0.8"],\
           ["expo-web-browser", "virtual:3888c587a5d2a62b076f7e50ac6a694c2f1f244ec4331abe0f6c81a768719a890b15ba7cca490c131de5d579be735e0f1cfba5babc5bd712c70990b9e00512c3#npm:14.1.6"],\
           ["mobx", "npm:6.13.7"],\
+          ["mobx-react-lite", "virtual:3888c587a5d2a62b076f7e50ac6a694c2f1f244ec4331abe0f6c81a768719a890b15ba7cca490c131de5d579be735e0f1cfba5babc5bd712c70990b9e00512c3#npm:4.1.0"],\
           ["react", "npm:19.0.0"],\
           ["react-dom", "virtual:3888c587a5d2a62b076f7e50ac6a694c2f1f244ec4331abe0f6c81a768719a890b15ba7cca490c131de5d579be735e0f1cfba5babc5bd712c70990b9e00512c3#npm:19.0.0"],\
           ["react-native", "virtual:3888c587a5d2a62b076f7e50ac6a694c2f1f244ec4331abe0f6c81a768719a890b15ba7cca490c131de5d579be735e0f1cfba5babc5bd712c70990b9e00512c3#npm:0.79.3"],\
@@ -6822,6 +6823,7 @@ const RAW_RUNTIME_STATE =
           ["expo-system-ui", "virtual:3888c587a5d2a62b076f7e50ac6a694c2f1f244ec4331abe0f6c81a768719a890b15ba7cca490c131de5d579be735e0f1cfba5babc5bd712c70990b9e00512c3#npm:5.0.8"],\
           ["expo-web-browser", "virtual:3888c587a5d2a62b076f7e50ac6a694c2f1f244ec4331abe0f6c81a768719a890b15ba7cca490c131de5d579be735e0f1cfba5babc5bd712c70990b9e00512c3#npm:14.1.6"],\
           ["mobx", "npm:6.13.7"],\
+          ["mobx-react-lite", "virtual:3888c587a5d2a62b076f7e50ac6a694c2f1f244ec4331abe0f6c81a768719a890b15ba7cca490c131de5d579be735e0f1cfba5babc5bd712c70990b9e00512c3#npm:4.1.0"],\
           ["react", "npm:19.0.0"],\
           ["react-dom", "virtual:3888c587a5d2a62b076f7e50ac6a694c2f1f244ec4331abe0f6c81a768719a890b15ba7cca490c131de5d579be735e0f1cfba5babc5bd712c70990b9e00512c3#npm:19.0.0"],\
           ["react-native", "virtual:3888c587a5d2a62b076f7e50ac6a694c2f1f244ec4331abe0f6c81a768719a890b15ba7cca490c131de5d579be735e0f1cfba5babc5bd712c70990b9e00512c3#npm:0.79.3"],\
@@ -9693,6 +9695,41 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../C:/Users/vk221/AppData/Local/Yarn/Berry/cache/mobx-npm-6.13.7-f32d167142-10c0.zip/node_modules/mobx/",\
         "packageDependencies": [\
           ["mobx", "npm:6.13.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["mobx-react-lite", [\
+      ["npm:4.1.0", {\
+        "packageLocation": "../../C:/Users/vk221/AppData/Local/Yarn/Berry/cache/mobx-react-lite-npm-4.1.0-786b943b95-10c0.zip/node_modules/mobx-react-lite/",\
+        "packageDependencies": [\
+          ["mobx-react-lite", "npm:4.1.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:3888c587a5d2a62b076f7e50ac6a694c2f1f244ec4331abe0f6c81a768719a890b15ba7cca490c131de5d579be735e0f1cfba5babc5bd712c70990b9e00512c3#npm:4.1.0", {\
+        "packageLocation": "./.yarn/__virtual__/mobx-react-lite-virtual-efd8fe33f7/3/C:/Users/vk221/AppData/Local/Yarn/Berry/cache/mobx-react-lite-npm-4.1.0-786b943b95-10c0.zip/node_modules/mobx-react-lite/",\
+        "packageDependencies": [\
+          ["@types/mobx", null],\
+          ["@types/react", "npm:19.0.14"],\
+          ["@types/react-dom", null],\
+          ["@types/react-native", null],\
+          ["mobx", "npm:6.13.7"],\
+          ["mobx-react-lite", "virtual:3888c587a5d2a62b076f7e50ac6a694c2f1f244ec4331abe0f6c81a768719a890b15ba7cca490c131de5d579be735e0f1cfba5babc5bd712c70990b9e00512c3#npm:4.1.0"],\
+          ["react", "npm:19.0.0"],\
+          ["react-dom", "virtual:3888c587a5d2a62b076f7e50ac6a694c2f1f244ec4331abe0f6c81a768719a890b15ba7cca490c131de5d579be735e0f1cfba5babc5bd712c70990b9e00512c3#npm:19.0.0"],\
+          ["react-native", "virtual:3888c587a5d2a62b076f7e50ac6a694c2f1f244ec4331abe0f6c81a768719a890b15ba7cca490c131de5d579be735e0f1cfba5babc5bd712c70990b9e00512c3#npm:0.79.3"],\
+          ["use-sync-external-store", "virtual:231b72db5e5e9240680e0fdc79e829cca64688c958944e2f3c598a90ba572e4c20d1dcd43af98518d4a44ffcc1b29047275a3b7952feb2c3dfa5dd5bd604521f#npm:1.5.0"]\
+        ],\
+        "packagePeers": [\
+          "@types/mobx",\
+          "@types/react-dom",\
+          "@types/react-native",\
+          "@types/react",\
+          "mobx",\
+          "react-dom",\
+          "react-native",\
+          "react"\
         ],\
         "linkType": "HARD"\
       }]\
