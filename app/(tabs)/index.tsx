@@ -1,10 +1,10 @@
 import { Image } from 'expo-image';
 import { Platform, StyleSheet } from 'react-native';
 
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
+import { HelloWave } from '@/packages/ui/src/components/organisms/HelloWave';
+import ParallaxScrollView from '@/packages/ui/src/components/organisms/ParallaxScrollView';
+import { ThemedText } from '@/packages/ui/src/components/organisms/ThemedText';
+import { ThemedView } from '@/packages/ui/src/components/organisms/ThemedView';
 
 export default function HomeScreen() {
   return (
@@ -15,7 +15,8 @@ export default function HomeScreen() {
           source={require('@/assets/images/partial-react-logo.png')}
           style={styles.reactLogo}
         />
-      }>
+      }
+    >
       <ThemedView style={styles.titleContainer}>
         <ThemedText type="title">Welcome!</ThemedText>
         <HelloWave />
