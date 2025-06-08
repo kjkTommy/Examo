@@ -1,10 +1,10 @@
 import { RootStoreProvider } from '@/packages/core/src/Root';
+import NavigationRoot from '@/packages/navigation/src/NavigationRoot';
 import { useColorScheme } from '@/packages/tools/hooks/useColorScheme';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import React = require('react');
+import React from 'react';
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
@@ -20,10 +20,7 @@ export default function RootLayout() {
   return (
     <RootStoreProvider>
       <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-        <Stack>
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-          <Stack.Screen name="+not-found" />
-        </Stack>
+        <NavigationRoot />
         <StatusBar style="auto" />
       </ThemeProvider>
     </RootStoreProvider>
