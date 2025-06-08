@@ -1,11 +1,13 @@
-import { observer } from 'mobx-react-lite';
+import {NavigationContainer} from '@react-navigation/native';
+import {observer} from 'mobx-react-lite';
 import React from 'react';
-import { Text, View } from 'react-native';
+import LargeHomeStack from './LargeBindings/LargeHomeStack';
+import Home from '../screens/Home';
 
 export default observer(function LargeNavigationRoot() {
   return (
-    <View>
-      <Text>LargeNavigationRoot</Text>
-    </View>
+    <NavigationContainer>
+      <LargeHomeStack />
+    </NavigationContainer>
   );
 });

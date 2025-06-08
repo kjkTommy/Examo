@@ -1,18 +1,19 @@
-import LargeNavigationRoot from '@/packages/navigation/src/LargeNavigation/LargeNavigationRoot';
-import SmallNavigationRoot from '@/packages/navigation/src/SmallNavigation/SmallNavigationRoot';
-import { Stack } from 'expo-router';
-import { observer } from 'mobx-react-lite';
+import {observer} from 'mobx-react-lite';
 import React from 'react';
-import { Dimensions } from 'react-native';
+import {Dimensions, View, StyleSheet} from 'react-native';
+import LargeNavigationRoot from './LargeNavigation/LargeNavigationRoot';
+import SmallNavigationRoot from './SmallNavigation/SmallNavigationRoot';
 
 export default observer(function NavigationRoot() {
-  const isLg = Dimensions.get('screen').width > 1024;
-
   return (
-    <Stack>
-      {isLg ? <LargeNavigationRoot /> : <SmallNavigationRoot />}
-      {/* <Stack.Screen name="(tabs)" options={{ headerShown: false }} /> */}
-      {/* <Stack.Screen name="+not-found" /> */}
-    </Stack>
+    <View style={styles.container}>
+      <LargeNavigationRoot />
+      {/* {isLg ? <LargeNavigationRoot /> : <SmallNavigationRoot />} */}
+    </View>
   );
+});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
 });
