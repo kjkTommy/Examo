@@ -1,7 +1,8 @@
 import {createStackNavigator} from '@react-navigation/stack';
 import {observer} from 'mobx-react-lite';
 import React from 'react';
-import Home from '../../screens/Home';
+import Home from '../../screens/SmallScreens/Home';
+import HomeLarge from '../../screens/LargeScreens/HomeLarge';
 
 export default observer(function LargeHomeStack() {
   return (
@@ -11,7 +12,7 @@ export default observer(function LargeHomeStack() {
         headerShown: false,
       }}
     >
-      <Screen name="Root" component={Home} />
+      <Screen name="Root" component={HomeLarge} />
     </Navigator>
   );
 });
