@@ -1,20 +1,29 @@
 import {observer} from 'mobx-react-lite';
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text} from 'react-native';
+import variance from '../../../tools/hoc/variance';
 
 export default observer(function Home() {
-  console.log('Home отрендерился');
   return (
-    <View style={styles.container}>
-      <Text>123</Text>
-    </View>
+    <RootContainer>
+      <TextContainer>
+        <Text>123</Text>
+      </TextContainer>
+    </RootContainer>
   );
 });
 
-const styles = StyleSheet.create({
-  container: {
-    width: 150,
-    height: 150,
-    backgroundColor: 'red',
+const RootContainer = variance(View)(() => ({
+  root: {
+    display: 'flex',
+    flex: 1,
+    padding: 16,
   },
-});
+}));
+
+const TextContainer = variance(View)(() => ({
+  root: {
+    backgroundColor: 'red',
+    flex: 1,
+  },
+}));

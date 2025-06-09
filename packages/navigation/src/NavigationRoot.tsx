@@ -1,19 +1,22 @@
 import {observer} from 'mobx-react-lite';
 import React from 'react';
-import {Dimensions, View, StyleSheet} from 'react-native';
+import {View, Platform} from 'react-native';
 import LargeNavigationRoot from './LargeNavigation/LargeNavigationRoot';
 import SmallNavigationRoot from './SmallNavigation/SmallNavigationRoot';
+import variance from '../../tools/hoc/variance';
 
 export default observer(function NavigationRoot() {
+  const isLarge = Platform.OS === 'web';
+  console.log(isLarge);
   return (
-    <View style={styles.container}>
-      <LargeNavigationRoot />
-      {/* {isLg ? <LargeNavigationRoot /> : <SmallNavigationRoot />} */}
-    </View>
+    <NavigationRootContainer>
+      {isLarge ? <LargeNavigationRoot /> : <SmallNavigationRoot />}
+    </NavigationRootContainer>
   );
 });
-const styles = StyleSheet.create({
-  container: {
+
+const NavigationRootContainer = variance(View)(() => ({
+  root: {
     flex: 1,
   },
-});
+}));
