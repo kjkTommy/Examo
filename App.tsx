@@ -10,7 +10,7 @@ export default function App() {
     <View style={styles.container}>
       <SafeAreaProvider>
         <RootStoreProvider>
-          <StatusBar style="dark" />
+          <StatusBar style="light" />
           <NavigationRoot />
         </RootStoreProvider>
       </SafeAreaProvider>
@@ -21,6 +21,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#0000',
   },
 });

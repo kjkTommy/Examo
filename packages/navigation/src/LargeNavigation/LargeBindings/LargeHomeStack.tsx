@@ -1,8 +1,6 @@
 import {createStackNavigator} from '@react-navigation/stack';
 import {observer} from 'mobx-react-lite';
-import React from 'react';
-import Home from '../../screens/SmallScreens/Home';
-import HomeLarge from '../../screens/LargeScreens/HomeLarge';
+import AuthBinding from '../../CommonBindings/AuthBinding';
 
 export default observer(function LargeHomeStack() {
   return (
@@ -12,9 +10,9 @@ export default observer(function LargeHomeStack() {
         headerShown: false,
       }}
     >
-      <Screen name="Root" component={HomeLarge} />
+      <Screen name="Root" component={AuthBinding} />
     </Navigator>
   );
 });
 
-const {Navigator, Screen} = createStackNavigator();
+const {Navigator, Screen, Group} = createStackNavigator();

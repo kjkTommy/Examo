@@ -6,7 +6,7 @@ type PropsExtension<Styles extends StyleMap> = Partial<
   Record<Exclude<keyof Styles, 'root'>, boolean>
 >;
 
-function variance<ComponentProps extends {style?: any}>(
+function variance<ComponentProps extends Record<string, any>>(
   Component: React.ComponentType<ComponentProps>
 ) {
   return function <Styles extends StyleMap>(getStyles: () => Styles) {
