@@ -1,6 +1,7 @@
 import {createStackNavigator} from '@react-navigation/stack';
 import {observer} from 'mobx-react-lite';
 import AuthBinding from '../../CommonBindings/AuthBinding';
+import { View,Text } from 'react-native';
 
 export default observer(function LargeHomeStack() {
   return (

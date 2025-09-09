@@ -1,6 +1,7 @@
 import React from 'react';
+import {StyleProp, TextStyle, ViewStyle} from 'react-native';
 
-type StyleMap = Record<string, React.CSSProperties>;
+type StyleMap = Record<string, StyleProp<ViewStyle | TextStyle>>;
 
 type PropsExtension<Styles extends StyleMap> = Partial<
   Record<Exclude<keyof Styles, 'root'>, boolean>

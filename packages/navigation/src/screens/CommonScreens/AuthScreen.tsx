@@ -4,6 +4,7 @@ import {Text, TouchableOpacity, View} from 'react-native';
 import variance from '../../../../tools/hoc/variance';
 import Button from '../../../../ui/src/components/atoms/Button/Button';
 import DividerWithText from '../../../../ui/src/components/atoms/DividerWithText/DividerWithText';
+import {Input} from '../../../../ui/src/components/atoms/Input';
 
 export default observer(function AuthScreen() {
   return (
@@ -14,7 +15,14 @@ export default observer(function AuthScreen() {
       </BlockWithText>
       <ButtonLogin title="Google" onPress={() => {}} />
       <DividerWithText description={'Or'} />
-      <FormsContainer></FormsContainer>
+      <FormsContainer>
+        <Row>
+          <Input placeholder="userName" label="First Name" />
+          <Input placeholder="userName" label="First Name" />
+        </Row>
+        <Input placeholder="userName" label="First Name" />
+        <Input placeholder="userName" label="First Name" />
+      </FormsContainer>
       <ButtonSignUp title="Sign Up" onPress={() => {}} />
       <CointainerWithlink>
         <Description>Already have an account?</Description>
@@ -28,12 +36,31 @@ export default observer(function AuthScreen() {
 
 const RootContainer = variance(View)(() => ({
   root: {
+    flex: 1.2,
     padding: 20,
+    width: '100%',
+    flexDirection: 'column',
+    gap: 20,
+  },
+}));
+
+const Row = variance(View)(() => ({
+  root: {
+    flex: 1,
+    display: 'flex',
+    flexDirection: 'row',
+    width: '100%',
+    justifyContent: 'space-between',
   },
 }));
 
 const FormsContainer = variance(View)(() => ({
-  root: {},
+  root: {
+    paddingBottom: 30,
+    display: 'flex',
+    flexDirection: 'column',
+    gap: 16,
+  },
 }));
 
 const BlockWithText = variance(View)(() => ({
@@ -73,15 +100,8 @@ const Description = variance(Text)(() => ({
 
 const ButtonLogin = variance(Button)(() => ({
   root: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 16,
-    backgroundColor: 'red',
-    paddingTop: 12,
-    paddingBottom: 12,
-    paddingRight: 48,
-    paddingLeft: 48,
+    maxWidth: 345,
+    width: '100%',
   },
 }));
 

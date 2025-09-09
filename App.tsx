@@ -4,13 +4,14 @@ import {RootStoreProvider} from './packages/core/src/Root/Root';
 import React from 'react';
 import NavigationRoot from './packages/navigation/src/NavigationRoot';
 import {StatusBar} from 'expo-status-bar';
+import './packages/styles/GlobalStyles.css';
 
 export default function App() {
   return (
     <View style={styles.container}>
       <SafeAreaProvider>
         <RootStoreProvider>
-          <StatusBar style="light" />
+          <StatusBar style="dark" />
           <NavigationRoot />
         </RootStoreProvider>
       </SafeAreaProvider>
@@ -21,6 +22,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#0000',
+    backgroundColor: '#000000ff',
   },
 });

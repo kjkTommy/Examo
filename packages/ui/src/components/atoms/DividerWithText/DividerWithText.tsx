@@ -33,10 +33,9 @@ const Divider = variance(View)(() => ({
 }));
 const Description = variance(Text)(() => ({
   root: {
-    fontWeight: 400,
+    fontWeight: 600,
     fontSize: 12,
     lineHeight: 18,
-    // color: theme.palette.textAdditional2,
     textAlign: 'center',
     paddingHorizontal: 8,
   },
