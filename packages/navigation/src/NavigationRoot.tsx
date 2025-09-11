@@ -4,6 +4,7 @@ import {View, Platform, Text} from 'react-native';
 import LargeNavigationRoot from './LargeNavigation/LargeNavigationRoot';
 import SmallNavigationRoot from './SmallNavigation/SmallNavigationRoot';
 import variance from '../../tools/hoc/variance';
+import {LG_BREAKPOINT} from '../../constants/breakpoints';
 
 export default observer(function NavigationRoot() {
   const isLarge = Platform.OS === 'web';

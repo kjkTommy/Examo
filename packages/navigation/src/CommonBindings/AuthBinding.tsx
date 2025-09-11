@@ -8,9 +8,9 @@ import variance from '../../../tools/hoc/variance';
 import Tutorial from '../screens/LargeScreens/TutorialScreen/Tutorial';
 
 export default observer(function AuthBinding() {
-  const {} = useRoot();
+  const {layoutHelperState} = useRoot();
   const navigation = useNavigation();
-  const isLarge = Platform.OS === 'web';
+  const isLarge = layoutHelperState.isLarge;
 
   if (isLarge) {
     return (
