@@ -5,6 +5,7 @@ import variance from '../../../../tools/hoc/variance';
 import Button from '../../../../ui/src/components/atoms/Button/Button';
 import DividerWithText from '../../../../ui/src/components/atoms/DividerWithText/DividerWithText';
 import {Input} from '../../../../ui/src/components/atoms/Input';
+import GoogleLogin from '../../../../ui/src/components/atoms/GoogleButton/GoogleButton';
 
 export default observer(function AuthScreen() {
   return (
@@ -14,7 +15,8 @@ export default observer(function AuthScreen() {
         <SubTitle>Enter your personal data to create your account.</SubTitle>
       </BlockWithText>
       <Row>
-        <ButtonLogin title="Google" onPress={() => {}} />
+        <GoogleLogin />
+        {/*<ButtonLogin title="Google" onPress={() => {}} />*/}
         <ButtonLogin title="Apple" onPress={() => {}} />
       </Row>
       <DividerWithText description={'Or'} />

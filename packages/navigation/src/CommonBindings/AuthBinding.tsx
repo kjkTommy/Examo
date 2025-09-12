@@ -3,7 +3,7 @@ import React from 'react';
 import {useRoot} from '../../../core/src/Root/Root';
 import AuthScreen from '../screens/CommonScreens/AuthScreen';
 import {useNavigation} from '@react-navigation/native';
-import {Platform, View, Text} from 'react-native';
+import {View} from 'react-native';
 import variance from '../../../tools/hoc/variance';
 import Tutorial from '../screens/LargeScreens/TutorialScreen/Tutorial';
 
