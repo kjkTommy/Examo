@@ -11,8 +11,10 @@
   "dependencies": {
     "@expo/metro-runtime": "~5.0.4",
     "expo": "~53.0.10",
+    "expo-auth-session": "~6.2.1",
     "expo-linear-gradient": "^14.1.5",
     "expo-status-bar": "~2.2.3",
+    "expo-updates": "~0.28.17",
     "firebase": "^12.2.1",
     "mobx": "6.13.7",
     "mobx-react-lite": "4.1.0",
@@ -25,8 +27,7 @@
     "react-native-safe-area-context": "5.4.0",
     "react-native-screens": "4.11.1",
     "react-native-svg": "^15.11.2",
-    "react-native-web": "^0.20.0",
-    "expo-auth-session": "~6.2.1"
+    "react-native-web": "^0.20.0"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

@@ -29,6 +29,13 @@
       "eas": {
         "projectId": "df4698df-5498-4130-9f8a-c58d77b62d93"
       }
-    }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/df4698df-5498-4130-9f8a-c58d77b62d93"
+    },
+    "owner": "kjktommy"
   }
 }

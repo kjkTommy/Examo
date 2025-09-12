@@ -1,13 +1,20 @@
 import {observer} from 'mobx-react-lite';
 import React from 'react';
-import {Text, TouchableOpacity, View} from 'react-native';
+import {Text, View} from 'react-native';
 import variance from '../../../../tools/hoc/variance';
 import Button from '../../../../ui/src/components/atoms/Button/Button';
 import DividerWithText from '../../../../ui/src/components/atoms/DividerWithText/DividerWithText';
-import {Input} from '../../../../ui/src/components/atoms/Input';
-import GoogleLogin from '../../../../ui/src/components/atoms/GoogleButton/GoogleButton';
+import {AuthRequestPromptOptions, AuthSessionResult} from 'expo-auth-session';
+import {AuthRequest} from 'expo-auth-session';
+import Sized from '../../../../core/src/Sized/Sized';
+import {GoogleSvg} from '../../../../static/assets/icons/colored';
 
-export default observer(function AuthScreen() {
+export type AuthScreenProps = {
+  promptAsync: (options?: AuthRequestPromptOptions) => Promise<AuthSessionResult>;
+  request: AuthRequest | null;
+};
+
+export default observer(function AuthScreen(props: AuthScreenProps) {
   return (
     <RootContainer>
       <BlockWithText>
@@ -15,15 +22,23 @@ export default observer(function AuthScreen() {
         <SubTitle>Enter your personal data to create your account.</SubTitle>
       </BlockWithText>
       <Row>
-        <GoogleLogin />
-        {/*<ButtonLogin title="Google" onPress={() => {}} />*/}
+        <ButtonLogin
+          disabled={!props.request}
+          title="Google"
+          Icon={GoogleIcon}
+          onPress={() => {
+            props.promptAsync();
+          }}
+        />
         <ButtonLogin title="Apple" onPress={() => {}} />
       </Row>
       <DividerWithText description={'Or'} />
-      <ButtonSignUp title="Sign Up" onPress={() => {}} />
+      <ButtonSignUp title="Sign In" onPress={() => {}} />
     </RootContainer>
   );
 });
+
+const GoogleIcon = Sized(GoogleSvg, 16);
 
 const RootContainer = variance(View)(() => ({
   root: {
