@@ -13,53 +13,36 @@ export default observer(function AuthScreen() {
         <Title>Sign Up Account</Title>
         <SubTitle>Enter your personal data to create your account.</SubTitle>
       </BlockWithText>
-      <ButtonLogin title="Google" onPress={() => {}} />
+      <Row>
+        <ButtonLogin title="Google" onPress={() => {}} />
+        <ButtonLogin title="Apple" onPress={() => {}} />
+      </Row>
       <DividerWithText description={'Or'} />
-      <FormsContainer>
-        <Row>
-          <Input placeholder="userName" label="First Name" />
-          <Input placeholder="userName" label="First Name" />
-        </Row>
-        <Input placeholder="userName" label="First Name" />
-        <Input placeholder="userName" label="First Name" />
-      </FormsContainer>
       <ButtonSignUp title="Sign Up" onPress={() => {}} />
-      <CointainerWithlink>
-        <Description>Already have an account?</Description>
-        <TouchableText>
-          <TextToLogin>Log in</TextToLogin>
-        </TouchableText>
-      </CointainerWithlink>
     </RootContainer>
   );
 });
 
 const RootContainer = variance(View)(() => ({
   root: {
-    flex: 1.2,
+    flex: 2,
     padding: 20,
     width: '100%',
     flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
     gap: 20,
   },
 }));
 
 const Row = variance(View)(() => ({
   root: {
-    flex: 1,
+    // flex: 1,
     display: 'flex',
     flexDirection: 'row',
     width: '100%',
+    gap: 20,
     justifyContent: 'space-between',
-  },
-}));
-
-const FormsContainer = variance(View)(() => ({
-  root: {
-    paddingBottom: 30,
-    display: 'flex',
-    flexDirection: 'column',
-    gap: 16,
   },
 }));
 
@@ -67,48 +50,57 @@ const BlockWithText = variance(View)(() => ({
   root: {
     display: 'flex',
     flexDirection: 'column',
-    gap: 8,
+    gap: 14,
     alignItems: 'center',
     justifyContent: 'center',
   },
 }));
 
-const CointainerWithlink = variance(View)(() => ({
+const Title = variance(Text)(() => ({
   root: {
-    display: 'flex',
-    flexDirection: 'row',
-    gap: 1,
-    justifyContent: 'center',
+    fontSize: 22,
+    fontWeight: 400,
+    lineHeight: 24,
+    color: '#FFFFFF',
+    textAlign: 'center',
   },
 }));
 
-const Title = variance(Text)(() => ({
-  root: {},
-}));
-
 const SubTitle = variance(Text)(() => ({
-  root: {},
-}));
-
-const TextToLogin = variance(Text)(() => ({
-  root: {},
-}));
-
-const Description = variance(Text)(() => ({
-  root: {},
+  root: {
+    fontSize: 14,
+    fontWeight: 400,
+    lineHeight: 20,
+    color: '#B3B3B3',
+    textAlign: 'center',
+  },
 }));
 
 const ButtonLogin = variance(Button)(() => ({
   root: {
-    maxWidth: 345,
-    width: '100%',
+    textAlign: 'center',
+    fontSize: 16,
+    fontWeight: 600,
+    lineHeight: 20,
+    flex: 1,
+    // width: '100%',
+    color: '#ffffff',
+    backgroundColor: 'transparent',
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: '#9e9e9e',
   },
 }));
 
 const ButtonSignUp = variance(Button)(() => ({
-  root: {},
-}));
-
-const TouchableText = variance(TouchableOpacity)(() => ({
-  root: {},
+  root: {
+    textAlign: 'center',
+    fontSize: 16,
+    fontWeight: 600,
+    lineHeight: 20,
+    width: '100%',
+    color: '#000000',
+    backgroundColor: '#ffffff',
+    borderRadius: 10,
+  },
 }));

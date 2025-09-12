@@ -26,7 +26,8 @@ const Container = variance(View)(() => ({
 }));
 const Divider = variance(View)(() => ({
   root: {
-    backgroundColor: '#000000',
+    backgroundColor: '#B3B3B3',
+    width: 140,
     flex: 1,
     height: 1,
   },
@@ -37,6 +38,7 @@ const Description = variance(Text)(() => ({
     fontSize: 12,
     lineHeight: 18,
     textAlign: 'center',
+    color: '#B3B3B3',
     paddingHorizontal: 8,
   },
 }));

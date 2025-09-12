@@ -1,6 +1,6 @@
-import {createStackNavigator} from '@react-navigation/stack';
+import {createStackNavigator, TransitionPresets} from '@react-navigation/stack';
 import {observer} from 'mobx-react-lite';
-import AuthBinding from '../../CommonBindings/AuthBinding';
+import TestBinding from '../../CommonBindings/AuthBinding';
 
 export default observer(function SmallHomeStack() {
   return (
@@ -8,9 +8,14 @@ export default observer(function SmallHomeStack() {
       initialRouteName="Root"
       screenOptions={{
         headerShown: false,
+        cardStyle: {
+          flex: 1,
+          backgroundColor: 'transparent',
+        },
+        ...TransitionPresets.DefaultTransition,
       }}
     >
-      <Screen name="Root" component={AuthBinding} />
+      <Screen name="Root" component={TestBinding} />
     </Navigator>
   );
 });

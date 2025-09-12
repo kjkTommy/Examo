@@ -34,7 +34,7 @@ export default observer(function Tutorial() {
 
   return (
     <RootView>
-      <BackgroundGradient />
+      <BackgroundGradient style={{borderRadius: 30}} />
       <ContainerTutorial>
         <TutorialTitle>Get Started with Examo</TutorialTitle>
         <TutorialDescription numberOfLines={2}>

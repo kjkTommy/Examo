@@ -15,7 +15,7 @@ const Button = observer((props: CustomButtonProps) => {
   return (
     <ButtonContainer onPress={onPress} style={style}>
       {Icon ? Icon : null}
-      <ButtonText>{title}</ButtonText>
+      <ButtonText style={style}>{title}</ButtonText>
     </ButtonContainer>
   );
 });
@@ -39,5 +39,7 @@ const ButtonText = variance(Text)(() => ({
     color: '#FFFFFF',
     fontWeight: 500,
     fontSize: 16,
+    borderWidth: 0,
+    borderColor: 'transparent',
   },
 }));

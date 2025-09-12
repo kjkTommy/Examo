@@ -11,6 +11,7 @@ export default observer(function AuthBinding() {
   const {layoutHelperState} = useRoot();
   const navigation = useNavigation();
   const isLarge = layoutHelperState.isLarge;
+  console.log(isLarge);
 
   if (isLarge) {
     return (
@@ -20,7 +21,7 @@ export default observer(function AuthBinding() {
       </LargeScreenView>
     );
   } else {
-    <AuthScreen />;
+    return <AuthScreen />;
   }
 });
 
@@ -28,9 +29,9 @@ const LargeScreenView = variance(View)(() => ({
   root: {
     display: 'flex',
     flexDirection: 'row',
-    width: '60%',
     justifyContent: 'center',
     margin: 'auto',
     flex: 4 / 5,
+    gap: 20,
   },
 }));
