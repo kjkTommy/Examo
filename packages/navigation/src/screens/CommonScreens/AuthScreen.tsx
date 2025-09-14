@@ -4,10 +4,18 @@ import {Text, TouchableOpacity, View} from 'react-native';
 import variance from '../../../../tools/hoc/variance';
 import Button from '../../../../ui/src/components/atoms/Button/Button';
 import DividerWithText from '../../../../ui/src/components/atoms/DividerWithText/DividerWithText';
-import {Input} from '../../../../ui/src/components/atoms/Input';
+import sized from '../../../../core/src/Svg/sized';
+import {GoogleSvg} from '../../../../static/assets/icons/colorless';
 import GoogleLogin from '../../../../ui/src/components/atoms/GoogleButton/GoogleButton';
+import {AuthRequest, AuthRequestPromptOptions, AuthSessionResult} from 'expo-auth-session';
 
-export default observer(function AuthScreen() {
+export type AuthScreenProps = {
+  request: AuthRequest | null;
+  promptAsync: (options?: AuthRequestPromptOptions) => Promise<AuthSessionResult>;
+};
+
+export default observer(function AuthScreen(props: AuthScreenProps) {
+  const {request, promptAsync} = props;
   return (
     <RootContainer>
       <BlockWithText>
@@ -15,15 +23,24 @@ export default observer(function AuthScreen() {
         <SubTitle>Enter your personal data to create your account.</SubTitle>
       </BlockWithText>
       <Row>
-        <GoogleLogin />
-        {/*<ButtonLogin title="Google" onPress={() => {}} />*/}
+        {/*<GoogleLogin />*/}
+        <ButtonLogin
+          title="Google"
+          Icon={GoogleIcon}
+          onPress={() => {
+            promptAsync();
+          }}
+          disabled={!request}
+        />
         <ButtonLogin title="Apple" onPress={() => {}} />
       </Row>
       <DividerWithText description={'Or'} />
-      <ButtonSignUp title="Sign Up" onPress={() => {}} />
+      <ButtonSignUp textStyle={{}} title="Sign Up" onPress={() => {}} />
     </RootContainer>
   );
 });
+
+const GoogleIcon = sized(GoogleSvg, 16);
 
 const RootContainer = variance(View)(() => ({
   root: {
@@ -85,7 +102,6 @@ const ButtonLogin = variance(Button)(() => ({
     fontWeight: 600,
     lineHeight: 20,
     flex: 1,
-    // width: '100%',
     color: '#ffffff',
     backgroundColor: 'transparent',
     borderRadius: 10,

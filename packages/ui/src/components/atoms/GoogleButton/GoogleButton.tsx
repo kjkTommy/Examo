@@ -3,10 +3,11 @@ import {Button} from 'react-native';
 import * as Google from 'expo-auth-session/providers/google';
 import {GoogleAuthProvider, signInWithCredential} from 'firebase/auth';
 import {auth} from '../../../../../../firebaseConfig';
+import {CLIENT_ID} from '../../../../../constants/variable';
 
 export default function GoogleLogin() {
   const [request, response, promptAsync] = Google.useIdTokenAuthRequest({
-    clientId: '999731956395-5phdu22qursmuvvgvatk77kdm0uai4q5.apps.googleusercontent.com',
+    clientId: CLIENT_ID,
   });
 
   useEffect(() => {

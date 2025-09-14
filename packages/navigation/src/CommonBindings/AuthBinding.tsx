@@ -1,27 +1,45 @@
 import {observer} from 'mobx-react-lite';
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useRoot} from '../../../core/src/Root/Root';
 import AuthScreen from '../screens/CommonScreens/AuthScreen';
 import {useNavigation} from '@react-navigation/native';
 import {View} from 'react-native';
 import variance from '../../../tools/hoc/variance';
 import Tutorial from '../screens/LargeScreens/TutorialScreen/Tutorial';
+import * as Google from 'expo-auth-session/providers/google';
+import {CLIENT_ID} from '../../../constants/variable';
 
 export default observer(function AuthBinding() {
-  const {layoutHelperState} = useRoot();
+  const {layoutHelperState, oauthService} = useRoot();
   const navigation = useNavigation();
   const isLarge = layoutHelperState.isLarge;
-  console.log(isLarge);
+
+  const [request, response, promptAsync] = Google.useIdTokenAuthRequest({
+    clientId: CLIENT_ID,
+  });
+
+  useEffect(() => {
+    if (response?.type === 'success') {
+      const {id_token} = response.params;
+
+      oauthService
+        .signInWithGoogle(id_token)
+        .then((user) => {
+          console.log('Google user:', user);
+        })
+        .catch((err) => console.error('Google sign-in error:', err));
+    }
+  }, [response]);
 
   if (isLarge) {
     return (
       <LargeScreenView>
         <Tutorial />
-        <AuthScreen />
+        <AuthScreen request={request} promptAsync={promptAsync} />
       </LargeScreenView>
     );
   } else {
-    return <AuthScreen />;
+    return <AuthScreen request={request} promptAsync={promptAsync} />;
   }
 });
 

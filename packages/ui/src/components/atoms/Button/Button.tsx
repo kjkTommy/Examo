@@ -1,21 +1,23 @@
 import {observer} from 'mobx-react-lite';
-import React, {ReactNode} from 'react';
+import React, {FC, ReactNode} from 'react';
 import variance from '../../../../../tools/hoc/variance';
-import {ButtonProps, StyleProp, Text, TouchableOpacity, ViewStyle} from 'react-native';
+import {ButtonProps, StyleProp, Text, TextStyle, TouchableOpacity, ViewStyle} from 'react-native';
+import {SvgProps} from 'react-native-svg';
 
 export type CustomButtonProps = ButtonProps & {
-  Icon?: ReactNode;
+  Icon?: FC<SvgProps>;
   title: string;
   style?: StyleProp<ViewStyle>;
+  textStyle?: StyleProp<TextStyle>;
   onPress: () => void;
 };
 
 const Button = observer((props: CustomButtonProps) => {
-  const {Icon, title, onPress, style} = props;
+  const {Icon, title, onPress, style, textStyle} = props;
   return (
     <ButtonContainer onPress={onPress} style={style}>
-      {Icon ? Icon : null}
-      <ButtonText style={style}>{title}</ButtonText>
+      {Icon ? <Icon /> : null}
+      <ButtonText style={textStyle}>{title}</ButtonText>
     </ButtonContainer>
   );
 });
@@ -27,6 +29,8 @@ const ButtonContainer = variance(TouchableOpacity)(() => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    flexDirection: 'row',
+    gap: 4,
     borderRadius: 20,
     backgroundColor: '#1A1819',
     paddingTop: 20,
