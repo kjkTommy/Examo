@@ -1,10 +1,11 @@
 import {observer} from 'mobx-react-lite';
-import React, {ReactNode} from 'react';
+import React, {FC, ReactNode} from 'react';
 import variance from '../../../../../tools/hoc/variance';
 import {ButtonProps, StyleProp, Text, TouchableOpacity, ViewStyle} from 'react-native';
+import {SvgProps} from "react-native-svg";
 
 export type CustomButtonProps = ButtonProps & {
-  Icon?: ReactNode;
+  Icon?: FC<SvgProps>;
   title: string;
   style?: StyleProp<ViewStyle>;
   onPress: () => void;
@@ -14,7 +15,7 @@ const Button = observer((props: CustomButtonProps) => {
   const {Icon, title, onPress, style} = props;
   return (
     <ButtonContainer onPress={onPress} style={style}>
-      {Icon ? Icon : null}
+      {Icon ? <Icon/> : null}
       <ButtonText style={style}>{title}</ButtonText>
     </ButtonContainer>
   );

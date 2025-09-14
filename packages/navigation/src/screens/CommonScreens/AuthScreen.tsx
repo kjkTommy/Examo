@@ -6,6 +6,8 @@ import Button from '../../../../ui/src/components/atoms/Button/Button';
 import DividerWithText from '../../../../ui/src/components/atoms/DividerWithText/DividerWithText';
 import {Input} from '../../../../ui/src/components/atoms/Input';
 import GoogleLogin from '../../../../ui/src/components/atoms/GoogleButton/GoogleButton';
+import {sized} from "../../../../tools/hooks/sized";
+import {GooglSvg} from "../../../../static/assets/icons";
 
 export default observer(function AuthScreen() {
   return (
@@ -15,15 +17,17 @@ export default observer(function AuthScreen() {
         <SubTitle>Enter your personal data to create your account.</SubTitle>
       </BlockWithText>
       <Row>
-        <GoogleLogin />
-        {/*<ButtonLogin title="Google" onPress={() => {}} />*/}
+        {/*<GoogleLogin />*/}
+        <ButtonLogin title="Google" Icon={GoogleIcon} onPress={() => {}} />
         <ButtonLogin title="Apple" onPress={() => {}} />
       </Row>
       <DividerWithText description={'Or'} />
-      <ButtonSignUp title="Sign Up" onPress={() => {}} />
+      <ButtonSignUp title="Sign In" onPress={() => {}} />
     </RootContainer>
   );
 });
+
+const GoogleIcon = sized(GooglSvg, 16)
 
 const RootContainer = variance(View)(() => ({
   root: {
