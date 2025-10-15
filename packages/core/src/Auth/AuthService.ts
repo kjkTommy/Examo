@@ -7,7 +7,7 @@ import {
   User,
 } from 'firebase/auth';
 import {firebaseConfig} from '../../../../firebaseConfig';
-import {initializeApp} from 'firebase/app';
+import {initializeApp, getApps, getApp} from 'firebase/app';
 import {Platform} from 'react-native';
 
 export default class AuthService {
@@ -15,7 +15,7 @@ export default class AuthService {
   private authInstance;
 
   constructor() {
-    const app = initializeApp(firebaseConfig);
+    const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
     this.authInstance = getAuth(app);
 
     onAuthStateChanged(this.authInstance, (user) => {
