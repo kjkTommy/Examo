@@ -29,6 +29,9 @@
       "eas": {
         "projectId": "df4698df-5498-4130-9f8a-c58d77b62d93"
       }
-    }
+    },
+    "plugins": [
+      "expo-web-browser"
+    ]
   }
 }

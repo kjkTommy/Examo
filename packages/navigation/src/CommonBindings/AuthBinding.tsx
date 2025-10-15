@@ -8,7 +8,11 @@ import variance from '../../../tools/hoc/variance';
 import Tutorial from '../screens/LargeScreens/TutorialScreen/Tutorial';
 import * as Google from 'expo-auth-session/providers/google';
 import {makeRedirectUri} from 'expo-auth-session';
+import * as WebBrowser from 'expo-web-browser';
 import {CLIENT_ID} from '../../../constants/variables';
+import {getAuth, GoogleAuthProvider, signInWithCredential} from 'firebase/auth';
+
+WebBrowser.maybeCompleteAuthSession();
 
 export default observer(function AuthBinding() {
   const {layoutHelperState, authService} = useRoot();
@@ -22,10 +26,10 @@ export default observer(function AuthBinding() {
   });
 
   useEffect(() => {
-    if (response?.type === 'success') {
-      const {id_token} = response.params;
+    if (response?.type === 'success' && response.authentication?.idToken) {
+      const idToken = response.authentication.idToken;
       authService
-        .signInWithGoogle(id_token)
+        .signInWithGoogle(idToken)
         .then((user) => console.log('User signed in', user))
         .catch((err) => alert('Ошибка входа: ' + err.message));
     }
