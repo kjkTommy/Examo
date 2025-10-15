@@ -4,14 +4,14 @@ import {Text, View} from 'react-native';
 import variance from '../../../../tools/hoc/variance';
 import Button from '../../../../ui/src/components/atoms/Button/Button';
 import DividerWithText from '../../../../ui/src/components/atoms/DividerWithText/DividerWithText';
-import {sized} from "../../../../tools/hooks/sized";
+import {sized} from '../../../../tools/hooks/sized';
 import {AppleSvg, GooglSvg} from '../../../../static/assets/icons';
 import {AuthRequest, AuthRequestPromptOptions, AuthSessionResult} from 'expo-auth-session';
 
 export type AuthScreenProps = {
   request: AuthRequest | null;
   promptAsync: (options?: AuthRequestPromptOptions) => Promise<AuthSessionResult>;
-}
+};
 
 export default observer(function AuthScreen(props: AuthScreenProps) {
   const {request, promptAsync} = props;
@@ -22,7 +22,12 @@ export default observer(function AuthScreen(props: AuthScreenProps) {
         <SubTitle>Enter your personal data to create your account.</SubTitle>
       </BlockWithText>
       <Row>
-        <ButtonLogin title="Google" Icon={GoogleIcon} onPress={() => promptAsync({ useProxy: false, showInRecents: true } as any)} disabled={!request} />
+        <ButtonLogin
+          title="Google"
+          Icon={GoogleIcon}
+          onPress={() => promptAsync({useProxy: true, showInRecents: true} as any)}
+          disabled={!request}
+        />
         <ButtonLogin title="Apple" Icon={AppleIcon} onPress={() => {}} />
       </Row>
       <DividerWithText description={'Or'} />
@@ -31,8 +36,8 @@ export default observer(function AuthScreen(props: AuthScreenProps) {
   );
 });
 
-const GoogleIcon = sized(GooglSvg, 16)
-const AppleIcon = sized(AppleSvg, 16)
+const GoogleIcon = sized(GooglSvg, 16);
+const AppleIcon = sized(AppleSvg, 16);
 
 const RootContainer = variance(View)(() => ({
   root: {
