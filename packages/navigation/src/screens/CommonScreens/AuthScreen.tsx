@@ -25,7 +25,7 @@ export default observer(function AuthScreen(props: AuthScreenProps) {
         <ButtonLogin
           title="Google"
           Icon={GoogleIcon}
-          onPress={() => promptAsync({useProxy: true, showInRecents: true} as any)}
+          onPress={() => promptAsync()}
           disabled={!request}
         />
         <ButtonLogin title="Apple" Icon={AppleIcon} onPress={() => {}} />
