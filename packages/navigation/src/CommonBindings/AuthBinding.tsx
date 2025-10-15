@@ -3,14 +3,13 @@ import React, {useEffect} from 'react';
 import {useRoot} from '../../../core/src/Root/Root';
 import AuthScreen from '../screens/CommonScreens/AuthScreen';
 import {useNavigation} from '@react-navigation/native';
-import {View} from 'react-native';
+import {Platform, View} from 'react-native';
 import variance from '../../../tools/hoc/variance';
 import Tutorial from '../screens/LargeScreens/TutorialScreen/Tutorial';
 import * as Google from 'expo-auth-session/providers/google';
 import {makeRedirectUri} from 'expo-auth-session';
 import * as WebBrowser from 'expo-web-browser';
 import {CLIENT_ID} from '../../../constants/variables';
-import {getAuth, GoogleAuthProvider, signInWithCredential} from 'firebase/auth';
 
 WebBrowser.maybeCompleteAuthSession();
 
@@ -41,15 +40,28 @@ export default observer(function AuthBinding() {
 
   console.log('Current user:', authService.getCurrentUser());
 
+  const handleGoogleLogin = async () => {
+    if (Platform.OS === 'web') {
+      try {
+        const user = await authService.signInWithGoogle();
+        console.log('User signed in (web):', user);
+      } catch (err: any) {
+        alert('Ошибка входа: ' + err.message);
+      }
+    } else {
+      promptAsync();
+    }
+  };
+
   if (isLarge) {
     return (
       <LargeScreenView>
         <Tutorial />
-        <AuthScreen promptAsync={promptAsync} request={request} />
+        <AuthScreen handleGoogleLogin={handleGoogleLogin} />
       </LargeScreenView>
     );
   } else {
-    return <AuthScreen promptAsync={promptAsync} request={request} />;
+    return <AuthScreen handleGoogleLogin={handleGoogleLogin} />;
   }
 });
 

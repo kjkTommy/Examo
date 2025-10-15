@@ -9,12 +9,12 @@ import {AppleSvg, GooglSvg} from '../../../../static/assets/icons';
 import {AuthRequest, AuthRequestPromptOptions, AuthSessionResult} from 'expo-auth-session';
 
 export type AuthScreenProps = {
-  request: AuthRequest | null;
-  promptAsync: (options?: AuthRequestPromptOptions) => Promise<AuthSessionResult>;
+  handleGoogleLogin: () => void;
 };
 
 export default observer(function AuthScreen(props: AuthScreenProps) {
-  const {request, promptAsync} = props;
+  const {handleGoogleLogin} = props;
+
   return (
     <RootContainer>
       <BlockWithText>
@@ -22,12 +22,7 @@ export default observer(function AuthScreen(props: AuthScreenProps) {
         <SubTitle>Enter your personal data to create your account.</SubTitle>
       </BlockWithText>
       <Row>
-        <ButtonLogin
-          title="Google"
-          Icon={GoogleIcon}
-          onPress={() => promptAsync()}
-          disabled={!request}
-        />
+        <ButtonLogin title="Google" Icon={GoogleIcon} onPress={handleGoogleLogin} />
         <ButtonLogin title="Apple" Icon={AppleIcon} onPress={() => {}} />
       </Row>
       <DividerWithText description={'Or'} />
